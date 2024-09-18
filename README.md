@@ -5,6 +5,9 @@ Railway Level Crossing Simulation System 平交道模擬系統
 > Project Developing Time: Dec 2023 – Jan 2024  
 > **If you want to reference more about our project, just see our demo video!**
 
+### Demo Video
+[link]()
+
 ### 組別資訊
 * Team Number: Group 1
 * Team Members: 陳帛愛, 郭沛蓉, 黃友枚, 孫以瑭
@@ -45,20 +48,20 @@ Railway Level Crossing Simulation System 平交道模擬系統
 ### 系統狀態圖
 <img width="812" alt="Screenshot 2024-01-07 at 2 11 47 AM" src="https://github.com/Esther2002-soon/FinalProject_Microprocessor/assets/106828044/5b9c9370-7a23-4e0c-baf5-8d29534068a1">
 
-- 電路圖
+### 電路圖
   
 ![S__2891801](https://github.com/Esther2002-soon/FinalProject_Microprocessor/assets/106828044/3e8bf7a8-7c11-4b16-81aa-62dcb7e3c41a)
 
 - 設計
-1. 通知火車即將抵達：按按鈕後倒數5秒，5秒後火車經過
-2. 模擬平交道的安全護欄放下：利用伺服馬達控制
-3. 警示燈於欄杆放下期間閃爍，放下後恆亮燈：利用 LED 燈控制
-4. 感測火車，待火車通過後護欄升起：利用紅外線及超音波感測器
-5. 紅綠燈：利用 timer 的設定切換，並透過七段顯示器顯示紅綠燈秒數
-6. 緊急按鈕：利用 interrupt 放下護欄並亮起特殊燈況告知
+    1. 通知火車即將抵達：按按鈕後倒數 5 秒，5 秒後火車經過
+    2. 模擬平交道的安全護欄放下：利用伺服馬達控制
+    3. 警示燈於欄杆放下期間閃爍，放下後恆亮燈：利用 LED 燈控制
+    4. 感測火車，待火車通過後護欄升起：利用紅外線及超音波感測器
+    5. 紅綠燈：利用 timer 的設定切換，並透過七段顯示器顯示紅綠燈秒數
+    6. 緊急按鈕：利用 interrupt 放下護欄並亮起特殊燈況告知
 
 ### 系統開發工具、材料及技術
-- 開發工具、材料: 
+- 開發工具、材料
     - PIC18F4520
     - PICKIT 4
     - 紅外線障蔽傳感器 MH-B
@@ -81,34 +84,34 @@ Railway Level Crossing Simulation System 平交道模擬系統
 - 系統開發技術各項詳述
     - timer (timer2 for CCP module)
     - UART (show state)
-        - 利用UART生成字串警示
+        - 利用 UART 生成字串警示
         - Train mode : 開始生成 "start" 結束生成 "stop"
         - emergency mode : 開始生成 "emergency" 結束生成 "emergency off"
     - PWM (server motor)
-        - 利用PWM mode 產生方波，控制伺服馬達轉的角度(-90度～0度)
+        - 利用 PWM mode 產生方波，控制伺服馬達轉的角度(-90 度 ～ 0 度)
     - 紅外線障蔽傳感器
         - 總共有三個接頭左至右為OUTPUT GND VCC  
         
-          <img width="814" alt="Screenshot 2024-01-10 at 3 24 44 PM" src="https://github.com/Esther2002-soon/FinalProject_Microprocessor/assets/106828044/6ba3669a-8b65-419c-9294-51858bfa7811">
+          <img width="400" alt="Screenshot 2024-01-10 at 3 24 44 PM" src="https://github.com/Esther2002-soon/FinalProject_Microprocessor/assets/106828044/6ba3669a-8b65-419c-9294-51858bfa7811">
 
-        - OUT接到RB1，0為感測到物體
+        - OUT 接到 RB1，0 為感測到物體
     - 七段顯示器 
         - 紅綠燈之倒數
 
 ### 實際組員之分工項目
-- 陳帛愛: UART、button、傳感器整合、整合系統、測試、製作道具、report製作
-- 郭沛蓉: UUART、button、傳感器整合、整合系統、測試、製作道具、report製作
-- 黃友枚: 紅外線傳感器、button、傳感器整合、整合系統、測試、製作道具、report製作
-- 孫以瑭: 七段顯示器計時、紅綠燈、report製作整合、測試、製作道具
+- 陳帛愛：UART、button、傳感器整合、整合系統、測試、製作道具、report 製作
+- 郭沛蓉：UUART、button、傳感器整合、整合系統、測試、製作道具、report 製作
+- 黃友枚：紅外線傳感器、button、傳感器整合、整合系統、測試、製作道具、report 製作
+- 孫以瑭：七段顯示器計時、紅綠燈、report 製作整合、測試、製作道具
   
 ### 遇到的困難及如何解決
-- 困難: 多個晶片無法整合溝通
-    - 解決方法: 將所有晶片的功能整合到一個晶片上
+- 困難：多個晶片無法整合溝通
+    - 解決方法：將所有晶片的功能整合到一個晶片上
 - 困難: 原本打算使用七段顯示器倒數二位數秒數，但是把功能整合到一個晶片上後導致port不夠
-    - 解決方法: 改成一位數時間倒數
+    - 解決方法：改成一位數時間倒數
 - 困難: 七段顯示器2.3digit的pin腳資料由於各個型號各異，沒有統一資料
-    - 解決方法: 一根一根pin腳測試
+    - 解決方法：一根一根pin腳測試
 - 困難: 紅外線傳感器故障，無條件感測到物品
-    - 解決方法: 再買一個嗚嗚
-- 困難: 實驗課發放的按鈕在本專題無法使用（但問題並不是按鈕本身壞掉，目前尚未知為何按鈕按下會導致程式中斷）
-    - 解決方法: 經測試發現使用別款按鈕程式可正常執行，因此改放棄原按鈕
+    - 解決方法：再買一個嗚嗚
+- 困難：實驗課發放的按鈕在本專題無法使用（但問題並不是按鈕本身壞掉，目前尚未知為何按鈕按下會導致程式中斷）
+    - 解決方法：經測試發現使用別款按鈕程式可正常執行，因此改放棄原按鈕
